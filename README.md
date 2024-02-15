@@ -1,5 +1,5 @@
 # SkyCast-Weather-App
-SkyCasr Weather App Link
+SkyCasr Weather App Link: 
 https://naflanmohamed.github.io/SkyCast-Weather-App/
 
 SkyCast Weather App Developed Using HTML, CSS, and JavaSCript
