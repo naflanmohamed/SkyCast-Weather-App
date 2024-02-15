@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SkyCast Weather App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    
+    <div class="card">
+      <div class="head">
+        <h1>SkyCast</h1>
+        <p>Weather App</p>
+      </div>
+      <div class="search">
+        <input type="text" placeholder="Search City" spellcheck="false">
+        <button><img src="SkyCast Weather App Image/search.png"> </button>
+      </div>
+      <div class="error">
+        <p>Unrecognized City!</p>
+      </div>
+      <div class="weather">
+        <img src="SkyCast Weather App Image/rain.png" class="weather-icon">
+        <h1 class="temp">34°c</h1>
+        <h2 class="city">Tokyo</h2>
+        <div class="details">
+          <div class="col">
+            <img src="SkyCast Weather App Image/humidity.png">
+            <div>
+              <p class="humidity">70%</p>
+              <p>Humidity</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="SkyCast Weather App Image/wind.png">
+            <div>
+              <p class="wind">13 km/h</p>
+              <p>Wind Flow</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <footer class="footer">
+      <p>Created by <a href="https://www.linkedin.com/in/naflan-mohamed">Naflan Mohamed</a></p>
+    </footer>
+  </div>
+    <script>
+      const apiKey = "adc5b402e3193223a68cdb12496b3912";
+      const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+      
+      const searchBox = document.querySelector(".search input");
+      const searchBotton = document.querySelector(".search button"); 
+      const weatherIcon = document.querySelector(".weather-icon");
+
+
+      async function checkWeather(city){
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+        
+        if(response.status == 404){
+          document.querySelector(".error").style.display = "block";
+          document.querySelector(".weather").style.display = "none";
+        }
+        else{
+          var data = await response.json();
+
+        // console.log(data);
+        
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
+        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+
+        if(data.weather[0].main == "Clouds"){
+          weatherIcon.src = "SkyCast Weather App Image/cloud.png";
+        }
+        else if(data.weather[0].main == "Rain"){
+          weatherIcon.src = "SkyCast Weather App Image/rain.png";
+        }
+        else if(data.weather[0].main == "Clear"){
+          weatherIcon.src = "SkyCast Weather App Image/clear.png";
+        }
+        else if(data.weather[0].main == "Drizzle"){
+          weatherIcon.src = "SkyCast Weather App Image/drizzle.png";
+        }
+        else if(data.weather[0].main == "Mist"){
+          weatherIcon.src = "SkyCast Weather App Image/mist.png";
+        }
+        else if(data.weather[0].main == "Snow"){
+          weatherIcon.src = "SkyCast Weather App Image/snow.png";
+        }
+
+        document.querySelector(".weather").style.display = "block";
+        document.querySelector(".error").style.display = "none";
+        }
+        
+        
+
+      }
+      
+
+      searchBotton.addEventListener("click", ()=>{
+        checkWeather(searchBox.value);
+      })
+
+      
+    </script>
+
+    
+  </body>
+  </html>  
