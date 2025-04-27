@@ -25,7 +25,7 @@ It fetches real-time weather data and displays it with a clean, modern interface
 
 ## 🚀 Versions
 
-### 📌 Version 1.0
+### 📌 Version 1.0 (Released: 16/02/2024)
 - Initial release
 - Basic weather fetching and display functionality
 
