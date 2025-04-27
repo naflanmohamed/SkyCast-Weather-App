@@ -161,3 +161,128 @@ body{
     text-decoration: none;
     font-weight: 600;
 }
+
+@media (max-width: 500px){
+    .card{
+        margin: 50px auto 0;
+        padding: 30px 20px;
+    }
+    .card::after{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
+        margin-top: 20px;
+    }
+    .head{
+        font-size: 30px;
+    }
+    .weather h1{
+        font-size: 60px;
+    }
+    .weather h2{
+        font-size: 35px;
+    }
+    .details{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .col{
+        margin-bottom: 20px;
+    }
+    .search{
+        padding: 0 10px;
+    }
+    .search input{
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px){
+    .card{
+        margin: 50px auto 0;
+        padding: 20px 20px;
+    }
+    .card::after{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
+        margin-top: 20px;
+    }
+
+    .head{
+        font-size: 30px;
+    }
+    .weather h1{
+        font-size: 50px;
+    }
+    .weather h2{
+        font-size: 30px;
+    }
+    .details{
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .col{
+        margin-bottom: 20px;
+    }
+    .search{
+        padding: 0 10px;
+
+    }
+    .search input{
+        padding: 10px 10px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 350px){
+    .card{
+        margin: 50px auto 0;
+        padding: 20px 20px;
+    }
+    .card::after{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
+        margin-top: 20px;
+    }
+    .head{
+        font-size: 30px;
+    }
+    .weather h1{
+        font-size: 40px;
+    }
+    .weather h2{
+        font-size: 50px;
+    }
+    .details{
+        flex-direction: row;
+        align-items: center;
+    }
+    .col{
+        margin-bottom: 20px;
+    }
+    .wind{
+        font-size: 20px;
+    }
+    .humidity{
+        font-size: 20px;
+    }
+    .search{
+            padding: 0;
+
+        }
+    .search input{
+        padding: 10px 10px;
+        font-size: 16px;
+    }
+}
